@@ -21,6 +21,10 @@ function install(){
   return 0
 }
 
+function set_zsh(){
+  chsh -s $(which zsh)
+}
+
 function create_symbolic_links(){
   # setting symbolic link
   ln -s ${HOME}/dotfiles/vim/vimrc ${HOME}/.vimrc
@@ -33,6 +37,7 @@ echo "HOME===[${HOME}]"
 readonly BACKUP_FILES=(".vimrc" ".zprofile" ".zshrc")
 backup "${BACKUP_FILES[*]}"
 install
+set_zsh
 create_symbolic_links
 
 echo "Done!!"
