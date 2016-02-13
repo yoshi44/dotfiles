@@ -1,0 +1,69 @@
+"##### vimrc
+"##### NeoBundle
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+" Initialize NeoBundle
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+"##### NeoBundleInstall
+" download :NeoBundleInstall
+" update :NeoBundleUpdate vimfiler
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler'
+NeoBundle 'joonty/vdebug'
+
+call neobundle#end()
+
+filetype plugin indent on
+
+"##### Display settings
+set clipboard=unnamed,autoselect
+set encoding=utf-8 
+set list
+set listchars=tab:>-,trail:.
+set number
+set showmatch
+set smartindent
+set tabstop=4
+set title
+syntax on
+
+set statusline=%F%m%r%h%w\%=[TYPE=%Y]\[FORMAT=%{&ff}]\[ENC=%{&fileencoding}]\[LOW=%l/%L]
+
+"#####Search#####
+set hlsearch
+set ignorecase
+set nowrapscan
+set smartcase
+
+hi ZenkakuSpace cterm=underline ctermfg=lightblue ctermbg=gray
+match ZenkakuSpace /　/
+
+let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=black ctermbg=white cterm=none'
+if has('syntax')
+  augroup InsertHook
+  autocmd!
+  autocmd InsertEnter * call s:StatusLine('Enter')
+  autocmd InsertLeave * call s:StatusLine('Leave')
+  augroup END
+endif
+let s:slhlcmd = ''
+function! s:StatusLine(mode)
+  if a:mode == 'Enter'
+    silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
+    silent exec g:hi_insert
+  else
+    highlight clear StatusLine
+    silent exec s:slhlcmd
+  endif
+endfunction
+function! s:GetHighlight(hi)
+  redir => hl
+  exec 'highlight '.a:hi
+  redir END
+  let hl = substitute(hl, '[\r\n]', '', 'g')
+  let hl = substitute(hl, 'xxx', '', '')
+  return hl
+endfunction
