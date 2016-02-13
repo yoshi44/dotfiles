@@ -1,0 +1,14 @@
+# zshrc
+
+alias ll='ls -l'
+# history command settings
+setopt hist_ignore_dups
+export HISTTIMEFORMAT='%Y/%m/%d %H:%M:%S '
+export HISTSIZE=10000
+export HISTIGNORE="cd*:exit:ll:ls:pwd:history:"
+
+# read plugin
+cd && for plugin_file in ~/dotfiles/zsh/plugin/*; do
+  source $plugin_file
+done
+

@@ -1,0 +1,51 @@
+"##### Encoding
+scriptencoding utf-8
+set encoding=utf-8
+
+"##### NeoBundle
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+" Initialize NeoBundle
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+"##### NeoBundleInstall
+" download :NeoBundleInstall
+" update :NeoBundleUpdate vimfiler
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler'
+NeoBundle 'joonty/vdebug'
+
+call neobundle#end()
+
+filetype plugin indent on
+
+"##### Display settings
+set clipboard=unnamed,autoselect
+set list
+set listchars=tab:»-,trail:-,eol:\↲\,extends:»,precedes:«,nbsp:%
+set number
+set showmatch
+set tabstop=4
+set title
+syntax on
+
+"##### Indent
+"set autoindent 
+"set shiftwidth=4 "indent 4 spaces
+"set smartindent
+
+set statusline=%F%m%r%h%w\%=[TYPE=%Y]\[FORMAT=%{&ff}]\[ENC=%{&fileencoding}]\[LOW=%l/%L]
+
+"#####Search#####
+set hlsearch
+set ignorecase
+set nowrapscan
+set smartcase
+
+hi ZenkakuSpace cterm=underline ctermfg=lightblue ctermbg=gray
+match ZenkakuSpace /　/
+
+
+
