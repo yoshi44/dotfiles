@@ -17,6 +17,8 @@ function backup(){
 function install(){
   # neobundle insatll
   curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh && sh ./install.sh
+  # powerline
+  curl https://github.com/powerline/fonts.git && sh ./install.sh
   return 0
 }
 
