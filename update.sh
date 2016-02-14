@@ -14,16 +14,24 @@ function backup(){
   return 0
 }
 
-function install(){
-  # neobundle insatll
-  curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh && sh ./install.sh
-  # powerline install
+function brew_install(){
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew update
+
+  # powerline install
   brew uninstall ricty
   brew tap sanemat/font
   brew install --vim-powerline ricty
   cp -f /usr/local/Cellar/ricty/3.*/share/fonts/Ricty*.ttf ${HOME}/Library/Fonts/
   fc-cache -vf
+  return 0
+}
+
+function install(){
+  # neobundle insatll
+  curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh && sh ./install.sh
+
+  brew_install
   return 0
 }
 
