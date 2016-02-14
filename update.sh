@@ -17,8 +17,13 @@ function backup(){
 function install(){
   # neobundle insatll
   curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh && sh ./install.sh
-  # powerline
-  curl https://github.com/powerline/fonts.git && sh ./install.sh
+  # powerline install
+  brew update
+  brew uninstall ricty
+  brew tap sanemat/font
+  brew install --vim-powerline ricty
+  cp -f /usr/local/Cellar/ricty/3.*/share/fonts/Ricty*.ttf ${HOME}/Library/Fonts/
+  fc-cache -vf
   return 0
 }
 
