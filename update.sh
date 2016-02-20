@@ -2,13 +2,12 @@
 
 function backup(){
   #echo "$1"
-  NOW=`date +%Y%m%d_%H-%M-%S`
-  BACKUP_DIR=${HOME}/dotfiles/backup/${NOW}
+  BACKUP_DIR=${HOME}/dotfiles/backup/`date +%Y%m%d_%H-%M-%S`
   mkdir ${BACKUP_DIR}
-  for backup_file in "$1"; do
+  for backup_file in $1; do
     BACKUP_FILE_PATH=${HOME}/${backup_file}
     if [[ -e ${BACKUP_FILE_PATH} ]]; then
-      mv ${BACKUP_FILE_PATH} ${BACKUP_DIR}/
+      mv -v ${BACKUP_FILE_PATH} ${BACKUP_DIR}/
     fi
   done
   return 0
