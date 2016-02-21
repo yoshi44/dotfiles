@@ -28,7 +28,7 @@ function brew_install(){
 
 function install(){
   # neobundle insatll
-  curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh && sh ./install.sh
+  curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh && sh ./install.sh && rm install.sh
 
   brew_install
   return 0

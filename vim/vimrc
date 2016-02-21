@@ -15,9 +15,10 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " update :NeoBundleUpdate vimfiler
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'joonty/vdebug'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Shougo/vimfiler'
+NeoBundle 'tpope/vim-fugitive'
 
 call neobundle#end()
 " Required:
@@ -31,6 +32,10 @@ set laststatus=2 "setting for lightline.vim
 " read plugin
 if filereadable(expand('$HOME/dotfiles/vim/plugin/lightline'))
   source $HOME/dotfiles/vim/plugin/lightline
+endif
+
+if filereadable(expand('$HOME/dotfiles/vim/plugin/vim-indent-guides'))
+  source $HOME/dotfiles/vim/plugin/vim-indent-guides
 endif
 
 "##### Display settings
