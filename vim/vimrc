@@ -39,7 +39,7 @@ if filereadable(expand('$HOME/dotfiles/vim/plugin/vim-indent-guides'))
 endif
 
 "##### Display settings
-set clipboard=unnamed,autoselect
+"set clipboard=unnamed,autoselect
 set list
 set listchars=tab:»-,trail:-,eol:\↲\,extends:»,precedes:«,nbsp:%
 set number
