@@ -23,7 +23,7 @@ function brew_install(){
   brew install --vim-powerline ricty
   RICTY_DIR=/usr/local/Cellar/ricty
   if [[ ! -e ${RICTY_DIR} ]]; then
-    cp -f ${RICTY_DIR}/3.*/share/fonts/Ricty*.ttf ${HOME}/Library/Fonts/ $$ fc-cache -vf
+    cp -f ${RICTY_DIR}/3.*/share/fonts/Ricty*.ttf ${HOME}/Library/Fonts/ && fc-cache -vf
   fi
   return 0
 }
