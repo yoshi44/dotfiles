@@ -1,4 +1,7 @@
 # zshrc
+fpath=(/usr/local/share/zsh-completions $fpath)
+autoload -Uz compinit
+compinit -u # Ignore insecure files message
 
 alias ll='ls -l'
 

@@ -1,6 +1,6 @@
 "##### Encoding
-scriptencoding utf-8
 set encoding=utf-8
+scriptencoding utf-8
 
 "##### NeoBundle
 if has('vim_starting')
@@ -13,13 +13,30 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 "##### NeoBundleInstall
 " download :NeoBundleInstall
 " update :NeoBundleUpdate vimfiler
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'joonty/vdebug'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
-NeoBundle 'joonty/vdebug'
+NeoBundle 'tpope/vim-fugitive'
 
 call neobundle#end()
-
+" Required:
 filetype plugin indent on
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
+set laststatus=2 "setting for lightline.vim
+
+" read plugin
+if filereadable(expand('$HOME/dotfiles/vim/plugin/lightline'))
+  source $HOME/dotfiles/vim/plugin/lightline
+endif
+
+if filereadable(expand('$HOME/dotfiles/vim/plugin/vim-indent-guides'))
+  source $HOME/dotfiles/vim/plugin/vim-indent-guides
+endif
 
 "##### Display settings
 set clipboard=unnamed,autoselect
@@ -47,5 +64,11 @@ set smartcase
 hi ZenkakuSpace cterm=underline ctermfg=lightblue ctermbg=gray
 match ZenkakuSpace /　/
 
-
+" restore last cursor position
+if has("autocmd")
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+    \   exe "normal! g'\"" |
+    \ endif
+endif
 

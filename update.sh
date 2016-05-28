@@ -2,22 +2,35 @@
 
 function backup(){
   #echo "$1"
-  NOW=`date +%Y%m%d_%H-%M-%S`
-  BACKUP_DIR=${HOME}/dotfiles/backup/${NOW}
+  BACKUP_DIR=${HOME}/dotfiles/backup/`date +%Y%m%d_%H-%M-%S`
   mkdir ${BACKUP_DIR}
-  for backup_file in "$1"; do
+  for backup_file in $1; do
     BACKUP_FILE_PATH=${HOME}/${backup_file}
     if [[ -e ${BACKUP_FILE_PATH} ]]; then
-      mv ${BACKUP_FILE_PATH} ${BACKUP_DIR}/
+      mv -v ${BACKUP_FILE_PATH} ${BACKUP_DIR}/
     fi
   done
   return 0
 }
 
+function brew_install(){
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  brew update
+
+  # powerline install
+  brew uninstall ricty
+  brew tap sanemat/font
+  brew install --vim-powerline ricty
+  cp -f /usr/local/Cellar/ricty/3.*/share/fonts/Ricty*.ttf ${HOME}/Library/Fonts/
+  fc-cache -vf
+  return 0
+}
+
 function install(){
   # neobundle insatll
-  curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
-  sh ./install.sh
+  curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh && sh ./install.sh && rm install.sh
+
+  brew_install
   return 0
 }
 
