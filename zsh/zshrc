@@ -4,11 +4,29 @@ autoload -Uz compinit
 compinit -u # Ignore insecure files message
 
 alias ll='ls -l'
+
+#
+autoload -U compinit
+compinit
+
 # history command settings
-setopt hist_ignore_dups
-export HISTTIMEFORMAT='%Y/%m/%d %H:%M:%S '
-export HISTSIZE=10000
-export HISTIGNORE="cd*:exit:ll:ls:pwd:history:"
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt extended_history
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt share_history
+
+zshaddhistory() {
+  local line=${1%%$'\n'}
+  local cmd=${line%% *}
+
+  [[ ${cmd} != (l|l[sal])
+  && ${cmd} != (exit|history|m|man|pwd|who)
+  ]]
+}
 
 # read plugin
 cd && for plugin_file in ~/dotfiles/zsh/plugin/*; do
