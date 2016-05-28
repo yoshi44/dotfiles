@@ -21,14 +21,16 @@ function brew_install(){
   brew uninstall ricty
   brew tap sanemat/font
   brew install --vim-powerline ricty
-  cp -f /usr/local/Cellar/ricty/3.*/share/fonts/Ricty*.ttf ${HOME}/Library/Fonts/
-  fc-cache -vf
+  RICTY_DIR=/usr/local/Cellar/ricty
+  if [[ ! -e ${RICTY_DIR} ]]; then
+    cp -f ${RICTY_DIR}/3.*/share/fonts/Ricty*.ttf ${HOME}/Library/Fonts/ $$ fc-cache -vf
+  fi
   return 0
 }
 
 function install(){
   # neobundle insatll
-  curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh && sh ./install.sh && rm install.sh
+  curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > ${HOME}/install.sh && sh ${HOME}/install.sh && rm ${HOME}/install.sh
 
   brew_install
   return 0
