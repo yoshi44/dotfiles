@@ -13,6 +13,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 "##### NeoBundleInstall
 " download :NeoBundleInstall
 " update :NeoBundleUpdate vimfiler
+NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'joonty/vdebug'
 NeoBundle 'nathanaelkane/vim-indent-guides'
