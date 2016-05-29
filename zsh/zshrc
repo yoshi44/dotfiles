@@ -4,6 +4,7 @@ autoload -Uz compinit
 compinit -u # Ignore insecure files message
 
 alias ll='ls -l'
+alias vim='nvim'
 
 #
 autoload -U compinit
