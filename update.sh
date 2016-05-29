@@ -17,6 +17,9 @@ function brew_install(){
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew update
 
+  # neovim
+  brew install neovim/neovim/neovim
+
   # powerline install
   brew uninstall ricty
   brew tap sanemat/font
