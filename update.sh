@@ -48,6 +48,11 @@ function set_zsh(){
 
 function create_symbolic_links(){
   # setting symbolic link
+  # neovim 
+  mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+  ln -s ${HOME}/dotfiles/vim $XDG_CONFIG_HOME/nvim
+  ln -s ${HOME}/dotfiles/vim/vimrc $XDG_CONFIG_HOME/nvim/init.vim
+
   ln -s ${HOME}/dotfiles/vim/vimrc ${HOME}/.vimrc
   ln -s ${HOME}/dotfiles/zsh/zprofile ${HOME}/.zprofile
   ln -s ${HOME}/dotfiles/zsh/zshrc ${HOME}/.zshrc
