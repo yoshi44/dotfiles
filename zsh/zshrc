@@ -34,3 +34,6 @@ cd && for plugin_file in ~/dotfiles/zsh/plugin/*; do
   source $plugin_file
 done
 
+# read zshrc.specific
+source ${HOME}/dotfiles/zsh/zshrc.specific
+
