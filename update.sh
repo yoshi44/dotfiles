@@ -17,6 +17,8 @@ function brew_install(){
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew update
 
+  # vim update
+  brew install macvim --with-override-system-vim
   # neovim
   brew install neovim/neovim/neovim
 
