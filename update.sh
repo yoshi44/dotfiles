@@ -17,6 +17,8 @@ function brew_install(){
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew update
 
+  # vim update
+  brew install macvim --with-override-system-vim
   # neovim
   brew install neovim/neovim/neovim
 
@@ -33,8 +35,10 @@ function brew_install(){
 
 function install(){
   # neobundle insatll
-  curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > ${HOME}/install.sh && sh ${HOME}/install.sh && rm ${HOME}/install.sh
-
+  #curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > ${HOME}/install.sh && sh ${HOME}/install.sh && rm ${HOME}/install.sh
+  INSTALLER_PATH=${HOME}/dotfiles/installer.sh
+  DEIN_INSTALL_DIR=${HOME}/.vim/dein && mkdir -p ${DEIN_INSTALL_DIR}
+  curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > ${INSTALLER_PATH} && sh ${INSTALLER_PATH} ${DEIN_INSTALL_DIR} && rm ${INSTALLER_PATH}
   brew_install
   return 0
 }
