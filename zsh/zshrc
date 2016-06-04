@@ -34,6 +34,9 @@ cd && for plugin_file in ~/dotfiles/zsh/plugin/*; do
   source $plugin_file
 done
 
+# gitignore file
 # read zshrc.specific
-source ${HOME}/dotfiles/zsh/zshrc.specific
-
+ZSHRC_SPECIFIC=${HOME}/dotfiles/zsh/zshrc.specific
+if [[ -e ${ZSHRC_SPECIFIC} ]]; then
+  source ${ZSHRC_SPECIFIC}
+fi

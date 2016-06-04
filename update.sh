@@ -18,24 +18,23 @@ function brew_install(){
   brew update
 
   # vim update
-  brew install macvim --with-override-system-vim
+  brew reinstall macvim
   # neovim
-  brew install neovim/neovim/neovim
+  brew reinstall neovim
 
   # powerline install
-  brew uninstall ricty
   brew tap sanemat/font
-  brew install --vim-powerline ricty
+  brew uninstall ricty && brew install --vim-powerline ricty
   RICTY_DIR=/usr/local/Cellar/ricty
   if [[ -e ${RICTY_DIR} ]]; then
     cp -f ${RICTY_DIR}/3.*/share/fonts/Ricty*.ttf ${HOME}/Library/Fonts/ && fc-cache -vf
   fi
+
+  brew doctor
   return 0
 }
 
 function install(){
-  # neobundle insatll
-  #curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > ${HOME}/install.sh && sh ${HOME}/install.sh && rm ${HOME}/install.sh
   INSTALLER_PATH=${HOME}/dotfiles/installer.sh
   DEIN_INSTALL_DIR=${HOME}/.vim/dein && mkdir -p ${DEIN_INSTALL_DIR}
   curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > ${INSTALLER_PATH} && sh ${INSTALLER_PATH} ${DEIN_INSTALL_DIR} && rm ${INSTALLER_PATH}
@@ -52,10 +51,10 @@ function set_zsh(){
 
 function create_symbolic_links(){
   # setting symbolic link
-  # neovim 
-  mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
-  ln -s ${HOME}/dotfiles/vim $XDG_CONFIG_HOME/nvim
-  ln -s ${HOME}/dotfiles/vim/vimrc $XDG_CONFIG_HOME/nvim/init.vim
+  # neovim
+  XDG_CONFIG_HOME=${HOME}/.config && mkdir -p ${XDG_CONFIG_HOME}
+  ln -s ${HOME}/dotfiles/vim/vim ${XDG_CONFIG_HOME}/nvim
+  ln -s ${HOME}/dotfiles/vim/vimrc ${XDG_CONFIG_HOME}/nvim/init.vim
 
   ln -s ${HOME}/dotfiles/vim/vimrc ${HOME}/.vimrc
   ln -s ${HOME}/dotfiles/zsh/zprofile ${HOME}/.zprofile
