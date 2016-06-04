@@ -1,4 +1,5 @@
 .project
 backup/*
+vim/vim/init.vim
 zsh/zshrc.specific
 
