@@ -2,27 +2,6 @@
 set encoding=utf-8
 scriptencoding utf-8
 
-"##### NeoBundle
-"if has('vim_starting')
-"  set runtimepath+=~/.vim/bundle/neobundle.vim/
-"endif
-
-" Initialize NeoBundle
-"call neobundle#begin(expand('~/.vim/bundle/'))
-
-"##### NeoBundleInstall
-" download :NeoBundleInstall
-" update :NeoBundleUpdate vimfiler
-"NeoBundle 'derekwyatt/vim-scala'
-"NeoBundle 'itchyny/lightline.vim'
-"NeoBundle 'joonty/vdebug'
-"NeoBundle 'nathanaelkane/vim-indent-guides'
-"NeoBundle 'Shougo/unite.vim'
-"NeoBundle 'Shougo/vimfiler'
-"NeoBundle 'tpope/vim-fugitive'
-
-"call neobundle#end()
-
 if &compatible
   set nocompatible
 endif
@@ -47,8 +26,6 @@ call dein#add('Xuyuanp/nerdtree-git-plugin')
 if dein#check_install()
   call dein#install()
 endif
-
-"NeoBundleCheck
 
 set laststatus=2 "setting for lightline.vim
 
@@ -94,4 +71,13 @@ if has("autocmd")
     \   exe "normal! g'\"" |
     \ endif
 endif
+
+" NERDTree
+autocmd vimenter * NERDTree
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+map <C-n> :NERDTreeToggle<CR>
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 
