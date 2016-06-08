@@ -1,3 +1,4 @@
+alias gi=git
 alias ll='ls -l'
+alias sc=scala
 alias vim='nvim'
-
