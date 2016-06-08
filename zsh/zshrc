@@ -3,13 +3,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 autoload -Uz compinit
 compinit -u # Ignore insecure files message
 
-alias ll='ls -l'
-alias vim='nvim'
-
-#
-autoload -U compinit
-compinit
-
 # history command settings
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -28,6 +21,9 @@ zshaddhistory() {
   && ${cmd} != (exit|history|m|man|pwd|who)
   ]]
 }
+
+# alias
+source ${HOME}/dotfiles/zsh/alias
 
 # read plugin
 cd && for plugin_file in ~/dotfiles/zsh/plugin/*; do
