@@ -59,6 +59,9 @@ function create_symbolic_links(){
   ln -s ${HOME}/dotfiles/vim/vimrc ${HOME}/.vimrc
   ln -s ${HOME}/dotfiles/zsh/zprofile ${HOME}/.zprofile
   ln -s ${HOME}/dotfiles/zsh/zshrc ${HOME}/.zshrc
+ 
+  # git
+  ln -s ${HOME}/dotfiles/git/gitconfig ${HOME}/.gitconfig
   return 0
 }
 
