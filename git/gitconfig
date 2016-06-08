@@ -1,0 +1,15 @@
+[alias]
+  ad = add
+  br = branch
+  ch = checkout
+  co = commit
+  di = diff
+  difff = diff --word-diff
+  fe = fetch
+  graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+  gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+  lo = log
+  pu = pull
+  re = reset
+  st = status
+  stt = status -uno
