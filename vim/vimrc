@@ -56,8 +56,10 @@ syntax on
 set statusline=%F%m%r%h%w\%=[TYPE=%Y]\[FORMAT=%{&ff}]\[ENC=%{&fileencoding}]\[LOW=%l/%L]
 
 "#####Search#####
+set cursorline
 set hlsearch
 set ignorecase
+"set nohlsearch "disabled
 set nowrapscan
 set smartcase
 
