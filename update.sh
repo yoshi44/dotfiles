@@ -20,11 +20,12 @@ function brew_install(){
   # vim update
   brew reinstall macvim
   # neovim
-  brew reinstall neovim
+  brew tap neovim/neovim && brew reinstall neovim/neovim/neovim
 
   # powerline install
   brew tap sanemat/font
-  brew uninstall ricty && brew install --vim-powerline ricty
+  brew uninstall ricty
+  brew install --vim-powerline ricty
   RICTY_DIR=/usr/local/Cellar/ricty
   if [[ -e ${RICTY_DIR} ]]; then
     cp -f ${RICTY_DIR}/3.*/share/fonts/Ricty*.ttf ${HOME}/Library/Fonts/ && fc-cache -vf
