@@ -20,7 +20,7 @@ function brew_install(){
   # vim update
   brew reinstall macvim
   # neovim
-  brew tap neovim/neovim && reinstall neovim/neovim/neovim
+  brew tap neovim/neovim && brew reinstall neovim/neovim/neovim
 
   # powerline install
   brew tap sanemat/font
