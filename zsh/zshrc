@@ -36,3 +36,11 @@ ZSHRC_SPECIFIC=${HOME}/dotfiles/zsh/zshrc.specific
 if [[ -e ${ZSHRC_SPECIFIC} ]]; then
   source ${ZSHRC_SPECIFIC}
 fi
+
+autoload -Uz add-zsh-hook
+add-zsh-hook chpwd chpwd_func
+function chpwd_func() {
+  sed -i -e "s:^cd .* #catcat:cd $PWD #catcat:g" ~/.zshrc
+}
+cd ${HOME} #catcat
+
