@@ -67,12 +67,15 @@ set smartcase
 hi ZenkakuSpace cterm=underline ctermfg=lightblue ctermbg=gray
 match ZenkakuSpace /　/
 
-" restore last cursor position
 if has("autocmd")
+  " restore last cursor position
   autocmd BufReadPost *
     \ if line("'\"") > 0 && line ("'\"") <= line("$") |
     \   exe "normal! g'\"" |
     \ endif
+
+  autocmd QuickFixCmdPost *grep* cwindow
+
 endif
 
 " NERDTree
