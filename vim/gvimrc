@@ -1,0 +1,13 @@
+" Size settings
+set fuoptions=maxvert,maxhorz
+au GUIEnter * set fullscreen
+
+" 
+set background=dark
+set imdisable	
+set showtabline=2
+"set transparency=10	
+set antialias
+set guifont=Monaco:h14
+"set guifont=Ricty\ Discord:h13
+colorscheme macvim
