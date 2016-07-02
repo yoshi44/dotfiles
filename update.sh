@@ -64,6 +64,7 @@ function create_symbolic_links(){
  
   # git
   ln -s ${HOME}/dotfiles/git/gitconfig ${HOME}/.gitconfig
+  ln -s ${HOME}/dotfiles/git/gitmessage.txt ${HOME}/.gitmessage.txt
   return 0
 }
 
