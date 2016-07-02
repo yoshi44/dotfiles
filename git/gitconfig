@@ -13,3 +13,11 @@
   re = reset
   st = status
   stt = status -uno
+[core]
+  editor = vim
+[commit]
+  template = ~/.gitmessage.txt
+[user]
+  name =
+  email =
+
