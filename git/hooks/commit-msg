@@ -1,10 +1,19 @@
 #!/usr/bin/env ruby
+
+prefix_branch_name=true
+
 message_file = ARGV[0]
 
 message = File.read(message_file, :encoding => Encoding::UTF_8)
 current_branch = `git branch | grep '*'`.chomp.sub('* ', '')
 
-newmessage = message.sub(/\[branch_name\]/, current_branch)
+prefix_commit_msg=""
+if (prefix_branch_name) then
+  prefix_commit_msg=current_branch.split("_")[0]
+else
+  prefix_commit_msg=current_branch
+end
+newmessage = message.sub(/\[branch_name\]/, prefix_commit_msg)
 
 File.write(message_file, newmessage)
 
