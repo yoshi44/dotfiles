@@ -1,5 +1,6 @@
 .project
 backup/*
+git/gitconfig
 vim/vim/init.vim
 zsh/zshrc.specific
 
