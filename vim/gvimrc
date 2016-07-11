@@ -1,7 +1,10 @@
 " Size settings
 set fuoptions=maxvert,maxhorz
-au GUIEnter * set fullscreen
 
+" window size
+"au GUIEnter * set fullscreen
+set lines=100
+set columns=120
 " 
 set background=dark
 set imdisable	
