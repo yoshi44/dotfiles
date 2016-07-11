@@ -64,6 +64,9 @@ set ignorecase
 set nowrapscan
 set smartcase
 
+" comment color
+hi Comment ctermfg=darkgrey
+
 hi ZenkakuSpace cterm=underline ctermfg=lightblue ctermbg=gray
 match ZenkakuSpace /　/
 
