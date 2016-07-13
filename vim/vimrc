@@ -81,6 +81,9 @@ if has("autocmd")
 
 endif
 
+" AutoSave
+let g:auto_save = 1 " enable AutoSave on Vim startup
+
 " NERDTree
 autocmd vimenter * NERDTree
 "autocmd StdinReadPre * let s:std_in=1
