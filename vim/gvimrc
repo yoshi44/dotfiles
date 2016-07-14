@@ -3,8 +3,8 @@ set fuoptions=maxvert,maxhorz
 
 " window size
 "au GUIEnter * set fullscreen
-set lines=100
-set columns=120
+set lines=40
+set columns=180
 " 
 set background=dark
 set imdisable	
