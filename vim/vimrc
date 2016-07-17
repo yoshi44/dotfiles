@@ -1,5 +1,7 @@
 "##### Encoding
 set encoding=utf-8
+set fileencoding=utf-8        "when writing
+set fileencodings=utf-8,cp932 "when reading
 scriptencoding utf-8
 
 if &compatible
