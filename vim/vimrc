@@ -1,7 +1,7 @@
 "##### Encoding
 set encoding=utf-8
-set fileencoding=utf-8        "when writing
-set fileencodings=utf-8,cp932 "when reading
+set fileencoding=utf-8                        "when writing
+set fileencodings=utf-8,cp932,utf-16,utf-16le "when reading
 scriptencoding utf-8
 
 if &compatible
@@ -46,6 +46,7 @@ endif
 "set clipboard=unnamed,autoselect
 set list
 set listchars=tab:»-,trail:-,eol:\↲\,extends:»,precedes:«,nbsp:%
+set nowrap
 set number
 set showmatch
 set tabstop=4
