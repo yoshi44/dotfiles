@@ -22,6 +22,7 @@ call dein#add('othree/html5.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('Shougo/neocomplete.vim')
 call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 call dein#add('Shougo/vimfiler')
 call dein#add('tpope/vim-fugitive')
 call dein#add('tpope/vim-markdown')
@@ -49,8 +50,12 @@ set listchars=tab:»-,trail:-,eol:\↲\,extends:»,precedes:«,nbsp:%
 set nowrap
 set number
 set showmatch
-set tabstop=4
 set title
+
+"indent setting
+set expandtab
+set tabstop=2
+set shiftwidth=2
 syntax on
 
 "##### Indent
@@ -67,6 +72,9 @@ set ignorecase
 "set nohlsearch "disabled
 set nowrapscan
 set smartcase
+
+" map
+nnoremap <ESC><ESC> :noh<CR>
 
 " comment color
 hi Comment ctermfg=darkgrey
