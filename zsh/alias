@@ -1,5 +1,6 @@
 alias gi=git
 alias hi=history
-alias ll='ls -l'
+alias la='ls -la -F -G'
+alias ll='ls -l -F -G'
 alias sc='scala -Dscala.color'
 alias vim='nvim'
