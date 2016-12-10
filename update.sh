@@ -17,10 +17,13 @@ function brew_install(){
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew update
 
+  # python
+  brew install python3
+  pip3 install neovim
+  pip3 install --upgrade neovim
+  pip install --upgrade pip
   # vim update
   brew reinstall macvim
-  # neovim
-  brew tap neovim/neovim && brew reinstall neovim/neovim/neovim
 
   # powerline install
   brew tap sanemat/font
