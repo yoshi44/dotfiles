@@ -18,6 +18,7 @@ function brew_install(){
   brew update
 
   # python
+  brew link xz
   brew install python3
   pip3 install neovim
   pip3 install --upgrade neovim
