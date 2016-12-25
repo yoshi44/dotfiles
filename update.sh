@@ -17,12 +17,15 @@ function brew_install(){
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew update
 
+  brew install neovim/neovim/neovim
+
   # python
   brew link xz
   brew install python3
   pip3 install neovim
   pip3 install --upgrade neovim
   pip install --upgrade pip
+
   # vim update
   brew reinstall macvim
 
@@ -32,7 +35,7 @@ function brew_install(){
   brew install --vim-powerline ricty
   RICTY_DIR=/usr/local/Cellar/ricty
   if [[ -e ${RICTY_DIR} ]]; then
-    cp -f ${RICTY_DIR}/3.*/share/fonts/Ricty*.ttf ${HOME}/Library/Fonts/ && fc-cache -vf
+    cp -f ${RICTY_DIR}/*/share/fonts/Ricty*.ttf ${HOME}/Library/Fonts/ && fc-cache -vf
   fi
 
   brew doctor
@@ -64,10 +67,10 @@ function create_symbolic_links(){
   ln -s ${HOME}/dotfiles/vim/vimrc ${HOME}/.vimrc
   ln -s ${HOME}/dotfiles/vim/gvimrc ${HOME}/.gvimrc
   ln -s ${HOME}/dotfiles/zsh/zprofile ${HOME}/.zprofile
-  ln -s ${HOME}/dotfiles/zsh/zshrc ${HOME}/.zshrc
- 
+  ln -sf ${HOME}/dotfiles/zsh/zshrc ${HOME}/.zshrc
+
   # git
-  ln -s ${HOME}/dotfiles/git/gitconfig ${HOME}/.gitconfig
+  ln -sf ${HOME}/dotfiles/git/gitconfig ${HOME}/.gitconfig
   ln -s ${HOME}/dotfiles/git/gitmessage.txt ${HOME}/.gitmessage.txt
   return 0
 }
