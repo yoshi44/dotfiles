@@ -50,8 +50,7 @@ function install(){
 function set_zsh(){
   chsh -s $(which zsh)
   if [[ ! -e ${HOME}/.zplug ]]; then
-    git clone https://github.com/b4b4r07/zplug ${HOME}/.zplug
-    source ${HOME}/.zplug/init.zsh
+    cd ${HOME} && curl -sL zplug.sh/installer | zsh
   fi
 }
 
@@ -77,8 +76,8 @@ echo "HOME===[${HOME}]"
 readonly BACKUP_FILES=(".vimrc" ".zprofile" ".zshrc")
 backup "${BACKUP_FILES[*]}"
 install
-set_zsh
 create_symbolic_links
+set_zsh
 
 echo "Done!!"
 exit 0
