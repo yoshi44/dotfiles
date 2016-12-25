@@ -51,6 +51,7 @@ function set_zsh(){
   chsh -s $(which zsh)
   if [[ ! -e ${HOME}/.zplug ]]; then
     git clone https://github.com/b4b4r07/zplug ${HOME}/.zplug
+    source ${HOME}/.zplug/init.zsh
   fi
 }
 
