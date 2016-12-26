@@ -3,4 +3,4 @@ alias hi=history
 alias la='ls -la -F -G'
 alias ll='ls -l -F -G'
 alias sc='scala -Dscala.color'
-alias vim='nvim'
+#alias vim='nvim'
